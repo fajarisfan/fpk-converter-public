@@ -2,9 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="FPK Converter", page_icon="⚡", layout="centered")
 
-# ── GANTI INI DENGAN LINK VIDEO DARI VENDOR ──
 VIDEO_URL = "https://drive.google.com/uc?export=download&id=1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj"
-# ─────────────────────────────────────────────
 
 # CSS
 st.markdown("""
@@ -38,167 +36,187 @@ input[type="password"]::-ms-reveal, input[type="password"]::-ms-clear { display:
 </style>
 """, unsafe_allow_html=True)
 
-# JS hapus mata
-st.markdown("""
-<script>
-(function() {
-  function removeEye() {
-    var sels = ['[data-testid="stTextInputHideShowButton"]','[data-baseweb="input"] button'];
-    sels.forEach(function(s) {
-      document.querySelectorAll(s).forEach(function(el) {
-        el.parentNode && el.parentNode.removeChild(el);
-      });
-    });
-  }
-  removeEye();
-  new MutationObserver(removeEye).observe(document.body, {childList:true,subtree:true});
-})();
-</script>
-""", unsafe_allow_html=True)
+# Session state
+if "pin_submitted" not in st.session_state:
+    st.session_state.pin_submitted = False
 
-# BADGE
-st.markdown("""
-<div style="text-align:center; padding-top:2rem;">
-  <div style="display:inline-block; background:#ff6b35; border:3px solid #f0f0f0;
-      padding:6px 18px; margin-bottom:1.5rem; box-shadow:4px 4px 0px #f0f0f0;">
-    <span style="font-family:'JetBrains Mono',monospace; font-size:11px;
-        font-weight:800; color:#f0f0f0; letter-spacing:2px;">
-      &#9889; FPK CONVERTER &nbsp;&middot;&nbsp; V1.0
-    </span>
-  </div>
-</div>
-""", unsafe_allow_html=True)
+# ── HALAMAN 1: FORM PIN ──
+if not st.session_state.pin_submitted:
+    st.markdown("""
+    <div style="text-align:center; padding-top:3rem;">
+      <div style="display:inline-block; background:#ff6b35; border:3px solid #f0f0f0;
+          padding:6px 18px; margin-bottom:2rem; box-shadow:4px 4px 0px #f0f0f0;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px;
+            font-weight:800; color:#f0f0f0; letter-spacing:2px;">
+          &#9889; FPK CONVERTER &nbsp;&middot;&nbsp; V1.0
+        </span>
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:800;
+          color:#f0f0f0; line-height:1.2; margin:0 0 0.5rem; letter-spacing:-1.5px;
+          text-transform:uppercase;">
+        MASUKKAN<br>
+        <span style="color:#ff6b35;">PIN AKSES</span>
+      </h1>
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.75rem;
+          color:#555; letter-spacing:1px; margin-bottom:2.5rem;">
+        // Masukkan PIN untuk melanjutkan
+      </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-# HEADING
-st.markdown("""
-<div style="text-align:center; padding:0 1rem 1rem;">
-  <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.8rem; font-weight:800;
-      color:#f0f0f0; line-height:1.15; margin:0 0 1.5rem; letter-spacing:-1.5px;
-      text-transform:uppercase;">
-    APLIKASI INI<br>
-    <span style="color:#ff6b35; border-bottom:5px solid #ff6b35; padding-bottom:2px;">
-      TIDAK DAPAT
-    </span><br>DIAKSES
-  </h1>
-</div>
-""", unsafe_allow_html=True)
+    pin_input = st.text_input("PIN", type="password", placeholder="", label_visibility="collapsed")
 
-# NOTICE BOX
-st.markdown("""
-<div style="background:#1a1a1a; border:3px solid #333; border-left:5px solid #ff6b35;
-    padding:1.2rem 1.5rem; margin:0 auto 1.5rem; max-width:480px;
-    box-shadow:4px 4px 0px #333;">
-  <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
-      color:#888; margin:0 0 0.5rem; letter-spacing:1px;">// NOTICE</p>
-  <p style="font-family:'Space Grotesk',sans-serif; font-size:0.95rem;
-      color:#cccccc; margin:0; line-height:1.7; font-weight:500;">
-    Aplikasi ini merupakan karya pribadi pengembangnya dan tidak lagi dapat diakses.
-    Silakan hubungi pengembang atau bangun sistem Anda sendiri.
-  </p>
-</div>
-""", unsafe_allow_html=True)
+    if st.button("AKSES →"):
+        if pin_input:
+            st.session_state.pin_submitted = True
+            st.rerun()
+        else:
+            st.warning("Masukkan PIN terlebih dahulu.")
 
-# STATUS CHIPS
-st.markdown("""
-<div style="display:flex; justify-content:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap;">
-  <div style="background:#111; border:2px solid #222; padding:0.7rem 1.2rem;
-      box-shadow:3px 3px 0px #222; text-align:center; min-width:90px;">
-    <div style="font-family:'JetBrains Mono',monospace; font-size:9px;
-        color:#555; letter-spacing:2px; margin-bottom:4px;">STATUS</div>
-    <div style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
-        color:#ff4444; font-weight:800;">LOCKED</div>
-  </div>
-  <div style="background:#111; border:2px solid #222; padding:0.7rem 1.2rem;
-      box-shadow:3px 3px 0px #222; text-align:center; min-width:90px;">
-    <div style="font-family:'JetBrains Mono',monospace; font-size:9px;
-        color:#555; letter-spacing:2px; margin-bottom:4px;">ACCESS</div>
-    <div style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
-        color:#ff6b35; font-weight:800;">DENIED</div>
-  </div>
-  <div style="background:#111; border:2px solid #222; padding:0.7rem 1.2rem;
-      box-shadow:3px 3px 0px #222; text-align:center; min-width:90px;">
-    <div style="font-family:'JetBrains Mono',monospace; font-size:9px;
-        color:#555; letter-spacing:2px; margin-bottom:4px;">VERSION</div>
-    <div style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
-        color:#ffd700; font-weight:800;">V1.0</div>
-  </div>
-</div>
-""", unsafe_allow_html=True)
+    st.markdown("""
+    <div style="text-align:center; margin-top:3rem;">
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+          color:#333; letter-spacing:1px;">
+        &copy; 2025 Isfan Fajar Anugrah &nbsp;&middot;&nbsp; All Rights Reserved
+      </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-# DIVIDER
-st.markdown("""
-<div style="display:flex; align-items:center; gap:1rem; margin:0.5rem 0 1.2rem;">
-  <div style="flex:1; height:2px; background:#1a1a1a;"></div>
-  <span style="font-family:'JetBrains Mono',monospace; font-size:9px;
-      color:#444; letter-spacing:2px; white-space:nowrap;">// CARA MANUAL</span>
-  <div style="flex:1; height:2px; background:#1a1a1a;"></div>
-</div>
-""", unsafe_allow_html=True)
+# ── HALAMAN 2: KONTEN UTAMA (setelah PIN dimasukkan) ──
+else:
+    # BADGE
+    st.markdown("""
+    <div style="text-align:center; padding-top:2rem;">
+      <div style="display:inline-block; background:#ff6b35; border:3px solid #f0f0f0;
+          padding:6px 18px; margin-bottom:1.5rem; box-shadow:4px 4px 0px #f0f0f0;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:11px;
+            font-weight:800; color:#f0f0f0; letter-spacing:2px;">
+          &#9889; FPK CONVERTER &nbsp;&middot;&nbsp; V1.0
+        </span>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-# VIDEO CARD
-st.markdown("""
-<div style="background:#111; border:3px solid #333; border-left:5px solid #ffd700;
-    padding:1.4rem 1.5rem; margin:0 auto 1.5rem; box-shadow:5px 5px 0px #ffd700;">
-  <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
-      color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">&#128252; PANDUAN VENDOR</p>
-  <p style="font-family:'Space Grotesk',sans-serif; font-size:1rem;
-      font-weight:700; color:#f0f0f0; margin:0 0 0.4rem;">
-    Video Tutorial Manual FPK BPJS
-  </p>
-  <p style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
-      color:#888; margin:0 0 1rem; line-height:1.6;">
-    Inilah proses yang selama ini digantikan oleh aplikasi ini.
-    Tanpa otomasi, setiap klaim harus dikerjakan manual seperti di video berikut.
-  </p>
-  <div style="background:#0d0d0d; border:2px solid #222; border-left:3px solid #444;
-      padding:0.8rem 1rem; margin-bottom:0.8rem;">
-    <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
-        color:#555; margin:0 0 4px; letter-spacing:1px;">// TANPA APLIKASI INI</p>
-    <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
-        color:#666; margin:0; line-height:1.8;">
-      &#10007; &nbsp;Buka PDF satu per satu<br>
-      &#10007; &nbsp;Salin No.SEP secara manual<br>
-      &#10007; &nbsp;Input ke Excel satu per satu<br>
-      &#10007; &nbsp;Hitung nominal secara manual<br>
-      &#10007; &nbsp;Potensi salah input &amp; duplikat
-    </p>
-  </div>
-  <div style="background:#0d0d0d; border:2px solid #1a3a1a; border-left:3px solid #00c47a;
-      padding:0.8rem 1rem; margin-bottom:1.2rem;">
-    <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
-        color:#00c47a; margin:0 0 4px; letter-spacing:1px;">// DENGAN APLIKASI INI (dulu)</p>
-    <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
-        color:#666; margin:0; line-height:1.8;">
-      &#10003; &nbsp;Upload PDF &#8594; otomatis terbaca<br>
-      &#10003; &nbsp;No.SEP &amp; nominal terekstrak otomatis<br>
-      &#10003; &nbsp;Deteksi duplikat otomatis<br>
-      &#10003; &nbsp;CSV siap pakai dalam hitungan detik<br>
-      &#10003; &nbsp;Riwayat &amp; rekap tersimpan otomatis
-    </p>
-  </div>
-</div>
-""", unsafe_allow_html=True)
+    # HEADING
+    st.markdown("""
+    <div style="text-align:center; padding:0 1rem 1rem;">
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.8rem; font-weight:800;
+          color:#f0f0f0; line-height:1.15; margin:0 0 1.5rem; letter-spacing:-1.5px;
+          text-transform:uppercase;">
+        APLIKASI INI<br>
+        <span style="color:#ff6b35; border-bottom:5px solid #ff6b35; padding-bottom:2px;">
+          TIDAK DAPAT
+        </span><br>DIAKSES
+      </h1>
+    </div>
+    """, unsafe_allow_html=True)
 
-# TOMBOL VIDEO — pakai st.link_button biar aman
-st.link_button("▶ TONTON VIDEO MANUAL", VIDEO_URL, use_container_width=True)
+    # NOTICE BOX
+    st.markdown("""
+    <div style="background:#1a1a1a; border:3px solid #333; border-left:5px solid #ff6b35;
+        padding:1.2rem 1.5rem; margin:0 auto 1.5rem; max-width:480px;
+        box-shadow:4px 4px 0px #333;">
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
+          color:#888; margin:0 0 0.5rem; letter-spacing:1px;">// NOTICE</p>
+      <p style="font-family:'Space Grotesk',sans-serif; font-size:0.95rem;
+          color:#cccccc; margin:0; line-height:1.7; font-weight:500;">
+        Aplikasi ini merupakan karya pribadi pengembangnya dan tidak lagi dapat diakses.
+        Silakan hubungi pengembang atau bangun sistem Anda sendiri.
+      </p>
+    </div>
+    """, unsafe_allow_html=True)
 
-# FOOTER
-st.markdown("""
-<div style="text-align:center; padding:1.5rem 1rem 1rem; margin-top:1rem;
-    border-top:2px solid #1a1a1a;">
-  <p style="font-family:'JetBrains Mono',monospace; font-size:0.65rem;
-      color:#333; letter-spacing:1px; margin:0;">
-    &copy; 2025 Isfan Fajar Anugrah &nbsp;&middot;&nbsp; All Rights Reserved<br>
-    Dilarang digandakan atau digunakan tanpa izin tertulis dari pemilik
-  </p>
-</div>
-""", unsafe_allow_html=True)
+    # STATUS CHIPS
+    st.markdown("""
+    <div style="display:flex; justify-content:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+      <div style="background:#111; border:2px solid #222; padding:0.7rem 1.2rem;
+          box-shadow:3px 3px 0px #222; text-align:center; min-width:90px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:9px;
+            color:#555; letter-spacing:2px; margin-bottom:4px;">STATUS</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+            color:#ff4444; font-weight:800;">LOCKED</div>
+      </div>
+      <div style="background:#111; border:2px solid #222; padding:0.7rem 1.2rem;
+          box-shadow:3px 3px 0px #222; text-align:center; min-width:90px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:9px;
+            color:#555; letter-spacing:2px; margin-bottom:4px;">ACCESS</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+            color:#ff6b35; font-weight:800;">DENIED</div>
+      </div>
+      <div style="background:#111; border:2px solid #222; padding:0.7rem 1.2rem;
+          box-shadow:3px 3px 0px #222; text-align:center; min-width:90px;">
+        <div style="font-family:'JetBrains Mono',monospace; font-size:9px;
+            color:#555; letter-spacing:2px; margin-bottom:4px;">VERSION</div>
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+            color:#ffd700; font-weight:800;">V1.0</div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
 
-# PIN — selalu ditolak
-st.markdown("<br>", unsafe_allow_html=True)
-pin_input = st.text_input("PIN AKSES", type="password", placeholder="", label_visibility="collapsed")
-if st.button("Coba Akses →"):
-    if pin_input:
-        st.error("🔒 Aplikasi ini tidak dapat diakses. Silakan bangun sistem Anda sendiri.")
-    else:
-        st.warning("Masukkan PIN terlebih dahulu.")
+    # DIVIDER
+    st.markdown("""
+    <div style="display:flex; align-items:center; gap:1rem; margin:0.5rem 0 1.2rem;">
+      <div style="flex:1; height:2px; background:#1a1a1a;"></div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:9px;
+          color:#444; letter-spacing:2px; white-space:nowrap;">// CARA MANUAL</span>
+      <div style="flex:1; height:2px; background:#1a1a1a;"></div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    # VIDEO CARD
+    st.markdown("""
+    <div style="background:#111; border:3px solid #333; border-left:5px solid #ffd700;
+        padding:1.4rem 1.5rem; margin:0 auto 1.5rem; box-shadow:5px 5px 0px #ffd700;">
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
+          color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">&#128252; PANDUAN VENDOR</p>
+      <p style="font-family:'Space Grotesk',sans-serif; font-size:1rem;
+          font-weight:700; color:#f0f0f0; margin:0 0 0.4rem;">
+        Video Tutorial Manual FPK BPJS
+      </p>
+      <p style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+          color:#888; margin:0 0 1rem; line-height:1.6;">
+        Inilah proses yang selama ini digantikan oleh aplikasi ini.
+        Tanpa otomasi, setiap klaim harus dikerjakan manual seperti di video berikut.
+      </p>
+      <div style="background:#0d0d0d; border:2px solid #222; border-left:3px solid #444;
+          padding:0.8rem 1rem; margin-bottom:0.8rem;">
+        <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+            color:#555; margin:0 0 4px; letter-spacing:1px;">// TANPA APLIKASI INI</p>
+        <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
+            color:#666; margin:0; line-height:1.8;">
+          &#10007; &nbsp;Buka PDF satu per satu<br>
+          &#10007; &nbsp;Salin No.SEP secara manual<br>
+          &#10007; &nbsp;Input ke Excel satu per satu<br>
+          &#10007; &nbsp;Hitung nominal secara manual<br>
+          &#10007; &nbsp;Potensi salah input &amp; duplikat
+        </p>
+      </div>
+      <div style="background:#0d0d0d; border:2px solid #1a3a1a; border-left:3px solid #00c47a;
+          padding:0.8rem 1rem; margin-bottom:1.2rem;">
+        <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+            color:#00c47a; margin:0 0 4px; letter-spacing:1px;">// DENGAN APLIKASI INI (dulu)</p>
+        <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
+            color:#666; margin:0; line-height:1.8;">
+          &#10003; &nbsp;Upload PDF &#8594; otomatis terbaca<br>
+          &#10003; &nbsp;No.SEP &amp; nominal terekstrak otomatis<br>
+          &#10003; &nbsp;Deteksi duplikat otomatis<br>
+          &#10003; &nbsp;CSV siap pakai dalam hitungan detik<br>
+          &#10003; &nbsp;Riwayat &amp; rekap tersimpan otomatis
+        </p>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.link_button("▶ TONTON VIDEO MANUAL", VIDEO_URL, use_container_width=True)
+
+    # FOOTER
+    st.markdown("""
+    <div style="text-align:center; padding:1.5rem 1rem 1rem; margin-top:1rem;
+        border-top:2px solid #1a1a1a;">
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.65rem;
+          color:#333; letter-spacing:1px; margin:0;">
+        &copy; 2025 Isfan Fajar Anugrah &nbsp;&middot;&nbsp; All Rights Reserved<br>
+        Dilarang digandakan atau digunakan tanpa izin tertulis dari pemilik
+      </p>
+    </div>
+    """, unsafe_allow_html=True)
