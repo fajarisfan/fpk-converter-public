@@ -2,8 +2,6 @@ import streamlit as st
 
 st.set_page_config(page_title="FPK Converter", page_icon="⚡", layout="centered")
 
-VIDEO_URL = "https://streamable.com/0vndzo"
-
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
@@ -151,7 +149,7 @@ else:
     </div>
 
     <div style="background:#111; border:3px solid #333; border-left:5px solid #ffd700;
-        padding:1.4rem 1.5rem; margin-bottom:1.5rem; box-shadow:5px 5px 0px #ffd700;">
+        padding:1.4rem 1.5rem; margin-bottom:1rem; box-shadow:5px 5px 0px #ffd700;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
           color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">🎬 PANDUAN VENDOR</p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:1rem;
@@ -177,7 +175,7 @@ else:
         </p>
       </div>
       <div style="background:#0d0d0d; border:2px solid #1a3a1a; border-left:3px solid #00c47a;
-          padding:0.8rem 1rem;">
+          padding:0.8rem 1rem; margin-bottom:1.2rem;">
         <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
             color:#00c47a; margin:0 0 4px; letter-spacing:1px;">// DENGAN APLIKASI INI (dulu)</p>
         <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
@@ -189,10 +187,17 @@ else:
           ✓ &nbsp;Riwayat &amp; rekap tersimpan otomatis
         </p>
       </div>
+      <div style="border:2px solid #ffd700; overflow:hidden;">
+        <iframe
+          src="https://drive.google.com/file/d/1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj/preview"
+          width="100%"
+          height="320"
+          allow="autoplay"
+          style="border:none; display:block;">
+        </iframe>
+      </div>
     </div>
     """, unsafe_allow_html=True)
-
-    st.link_button("▶ TONTON VIDEO MANUAL", VIDEO_URL, use_container_width=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
