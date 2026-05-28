@@ -190,7 +190,7 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    st.video("https://files.catbox.moe/3txpoo")
+    st.video("https://files.catbox.moe/3txpoo.mp4")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
