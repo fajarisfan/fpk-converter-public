@@ -190,6 +190,36 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
+    # ── TULISAN SEBELUM VIDEO ──
+    st.markdown("""
+    <div style="background:#0d0d0d; border:2px solid #1a1a1a; border-left:4px solid #ff6b35;
+        padding:1.1rem 1.4rem; margin-bottom:1rem;">
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+          color:#ff6b35; margin:0 0 0.6rem; letter-spacing:1px;">// PESAN DARI DEVELOPER</p>
+      <p style="font-family:'Space Grotesk',sans-serif; font-size:0.95rem;
+          font-weight:600; color:#f0f0f0; margin:0 0 0.6rem; line-height:1.7;">
+        Cape kan ngerjain ini manual satu-satu? 😄
+      </p>
+      <p style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+          color:#777; margin:0 0 0.6rem; line-height:1.8;">
+        Bayangin ada <span style="color:#ff6b35; font-weight:700;">8 PDF susulan</span> masuk sekaligus —
+        buka satu-satu, salin No.SEP satu-satu, input ke Excel satu-satu, hitung nominal satu-satu.
+        Itu baru <em>sekali batch.</em>
+      </p>
+      <p style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+          color:#777; margin:0 0 0.6rem; line-height:1.8;">
+        Aplikasi ini memproses 8 PDF itu dalam
+        <span style="color:#00c47a; font-weight:700;">hitungan detik.</span>
+        Hasilnya? Sama persis dengan manual — tapi tanpa capek, tanpa salah input, tanpa drama.
+      </p>
+      <p style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
+          color:#555; margin:0; line-height:1.8;">
+        Tapi ya — sekarang bukan urusan developer lagi.
+        Selamat menikmati video tutorialnya. 🙂
+      </p>
+    </div>
+    """, unsafe_allow_html=True)
+
     st.markdown("""
     <iframe
         src="https://drive.google.com/file/d/1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj/preview"
