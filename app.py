@@ -4,7 +4,6 @@ st.set_page_config(page_title="FPK Converter", page_icon="⚡", layout="centered
 
 VIDEO_URL = "https://drive.google.com/uc?export=download&id=1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj"
 
-# CSS
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap');
@@ -23,8 +22,9 @@ html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important
     border-color: #ff6b35 !important; box-shadow: 4px 4px 0px #ff6b35 !important;
 }
 [data-testid="stTextInputHideShowButton"],
-[data-baseweb="input"] button { display: none !important; width: 0 !important; }
-input[type="password"]::-ms-reveal, input[type="password"]::-ms-clear { display: none !important; }
+[data-baseweb="input"] button { display: none !important; }
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear { display: none !important; }
 .stButton > button {
     background: #ff6b35 !important; color: #f0f0f0 !important;
     border: 3px solid #f0f0f0 !important; border-radius: 0px !important;
@@ -32,11 +32,13 @@ input[type="password"]::-ms-reveal, input[type="password"]::-ms-clear { display:
     box-shadow: 4px 4px 0px #f0f0f0 !important; width: 100% !important;
     text-transform: uppercase !important; letter-spacing: 1px !important;
 }
-.stButton > button:hover { transform: translate(-2px,-2px) !important; box-shadow: 6px 6px 0px #f0f0f0 !important; }
+.stButton > button:hover {
+    transform: translate(-2px,-2px) !important;
+    box-shadow: 6px 6px 0px #f0f0f0 !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
-# Session state
 if "pin_submitted" not in st.session_state:
     st.session_state.pin_submitted = False
 
@@ -48,14 +50,13 @@ if not st.session_state.pin_submitted:
           padding:6px 18px; margin-bottom:2rem; box-shadow:4px 4px 0px #f0f0f0;">
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px;
             font-weight:800; color:#f0f0f0; letter-spacing:2px;">
-          &#9889; FPK CONVERTER &nbsp;&middot;&nbsp; V1.0
+          ⚡ FPK CONVERTER &nbsp;·&nbsp; V1.0
         </span>
       </div>
       <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.5rem; font-weight:800;
           color:#f0f0f0; line-height:1.2; margin:0 0 0.5rem; letter-spacing:-1.5px;
           text-transform:uppercase;">
-        MASUKKAN<br>
-        <span style="color:#ff6b35;">PIN AKSES</span>
+        MASUKKAN<br><span style="color:#ff6b35;">PIN AKSES</span>
       </h1>
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.75rem;
           color:#555; letter-spacing:1px; margin-bottom:2.5rem;">
@@ -77,29 +78,22 @@ if not st.session_state.pin_submitted:
     <div style="text-align:center; margin-top:3rem;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.65rem;
           color:#333; letter-spacing:1px;">
-        &copy; 2025 Isfan Fajar Anugrah &nbsp;&middot;&nbsp; All Rights Reserved
+        © 2025 Isfan Fajar Anugrah &nbsp;·&nbsp; All Rights Reserved
       </p>
     </div>
     """, unsafe_allow_html=True)
 
-# ── HALAMAN 2: KONTEN UTAMA (setelah PIN dimasukkan) ──
+# ── HALAMAN 2: PRANK ──
 else:
-    # BADGE
     st.markdown("""
     <div style="text-align:center; padding-top:2rem;">
       <div style="display:inline-block; background:#ff6b35; border:3px solid #f0f0f0;
           padding:6px 18px; margin-bottom:1.5rem; box-shadow:4px 4px 0px #f0f0f0;">
         <span style="font-family:'JetBrains Mono',monospace; font-size:11px;
             font-weight:800; color:#f0f0f0; letter-spacing:2px;">
-          &#9889; FPK CONVERTER &nbsp;&middot;&nbsp; V1.0
+          ⚡ FPK CONVERTER &nbsp;·&nbsp; V1.0
         </span>
       </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-    # HEADING
-    st.markdown("""
-    <div style="text-align:center; padding:0 1rem 1rem;">
       <h1 style="font-family:'Space Grotesk',sans-serif; font-size:2.8rem; font-weight:800;
           color:#f0f0f0; line-height:1.15; margin:0 0 1.5rem; letter-spacing:-1.5px;
           text-transform:uppercase;">
@@ -111,24 +105,21 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    # NOTICE BOX
     st.markdown("""
     <div style="background:#1a1a1a; border:3px solid #333; border-left:5px solid #ff6b35;
-        padding:1.2rem 1.5rem; margin:0 auto 1.5rem; max-width:480px;
-        box-shadow:4px 4px 0px #333;">
+        padding:1.2rem 1.5rem; margin-bottom:1.5rem; box-shadow:4px 4px 0px #333;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
           color:#888; margin:0 0 0.5rem; letter-spacing:1px;">// NOTICE</p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:0.95rem;
           color:#cccccc; margin:0; line-height:1.7; font-weight:500;">
         Aplikasi ini merupakan karya pribadi pengembangnya dan tidak lagi dapat diakses.
-        Silakan hubungi pengembang atau bangun sistem Anda sendiri.
+        Silakan hubungi pengembang atau <strong style="color:#ff6b35;">bangun sistem Anda sendiri.</strong>
       </p>
     </div>
     """, unsafe_allow_html=True)
 
-    # STATUS CHIPS
     st.markdown("""
-    <div style="display:flex; justify-content:center; gap:1rem; margin-bottom:1.5rem; flex-wrap:wrap;">
+    <div style="display:flex; justify-content:center; gap:1rem; margin-bottom:2rem; flex-wrap:wrap;">
       <div style="background:#111; border:2px solid #222; padding:0.7rem 1.2rem;
           box-shadow:3px 3px 0px #222; text-align:center; min-width:90px;">
         <div style="font-family:'JetBrains Mono',monospace; font-size:9px;
@@ -151,24 +142,18 @@ else:
             color:#ffd700; font-weight:800;">V1.0</div>
       </div>
     </div>
-    """, unsafe_allow_html=True)
 
-    # DIVIDER
-    st.markdown("""
     <div style="display:flex; align-items:center; gap:1rem; margin:0.5rem 0 1.2rem;">
       <div style="flex:1; height:2px; background:#1a1a1a;"></div>
       <span style="font-family:'JetBrains Mono',monospace; font-size:9px;
           color:#444; letter-spacing:2px; white-space:nowrap;">// CARA MANUAL</span>
       <div style="flex:1; height:2px; background:#1a1a1a;"></div>
     </div>
-    """, unsafe_allow_html=True)
 
-    # VIDEO CARD
-    st.markdown("""
     <div style="background:#111; border:3px solid #333; border-left:5px solid #ffd700;
-        padding:1.4rem 1.5rem; margin:0 auto 1.5rem; box-shadow:5px 5px 0px #ffd700;">
+        padding:1.4rem 1.5rem; margin-bottom:1.5rem; box-shadow:5px 5px 0px #ffd700;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
-          color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">&#128252; PANDUAN VENDOR</p>
+          color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">🎬 PANDUAN VENDOR</p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:1rem;
           font-weight:700; color:#f0f0f0; margin:0 0 0.4rem;">
         Video Tutorial Manual FPK BPJS
@@ -184,24 +169,24 @@ else:
             color:#555; margin:0 0 4px; letter-spacing:1px;">// TANPA APLIKASI INI</p>
         <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
             color:#666; margin:0; line-height:1.8;">
-          &#10007; &nbsp;Buka PDF satu per satu<br>
-          &#10007; &nbsp;Salin No.SEP secara manual<br>
-          &#10007; &nbsp;Input ke Excel satu per satu<br>
-          &#10007; &nbsp;Hitung nominal secara manual<br>
-          &#10007; &nbsp;Potensi salah input &amp; duplikat
+          ✗ &nbsp;Buka PDF satu per satu<br>
+          ✗ &nbsp;Salin No.SEP secara manual<br>
+          ✗ &nbsp;Input ke Excel satu per satu<br>
+          ✗ &nbsp;Hitung nominal secara manual<br>
+          ✗ &nbsp;Potensi salah input &amp; duplikat
         </p>
       </div>
       <div style="background:#0d0d0d; border:2px solid #1a3a1a; border-left:3px solid #00c47a;
-          padding:0.8rem 1rem; margin-bottom:1.2rem;">
+          padding:0.8rem 1rem;">
         <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
             color:#00c47a; margin:0 0 4px; letter-spacing:1px;">// DENGAN APLIKASI INI (dulu)</p>
         <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
             color:#666; margin:0; line-height:1.8;">
-          &#10003; &nbsp;Upload PDF &#8594; otomatis terbaca<br>
-          &#10003; &nbsp;No.SEP &amp; nominal terekstrak otomatis<br>
-          &#10003; &nbsp;Deteksi duplikat otomatis<br>
-          &#10003; &nbsp;CSV siap pakai dalam hitungan detik<br>
-          &#10003; &nbsp;Riwayat &amp; rekap tersimpan otomatis
+          ✓ &nbsp;Upload PDF → otomatis terbaca<br>
+          ✓ &nbsp;No.SEP &amp; nominal terekstrak otomatis<br>
+          ✓ &nbsp;Deteksi duplikat otomatis<br>
+          ✓ &nbsp;CSV siap pakai dalam hitungan detik<br>
+          ✓ &nbsp;Riwayat &amp; rekap tersimpan otomatis
         </p>
       </div>
     </div>
@@ -209,13 +194,18 @@ else:
 
     st.link_button("▶ TONTON VIDEO MANUAL", VIDEO_URL, use_container_width=True)
 
-    # FOOTER
+    st.markdown("<br>", unsafe_allow_html=True)
+
+    if st.button("🔒 LOGOUT →"):
+        st.session_state.pin_submitted = False
+        st.rerun()
+
     st.markdown("""
-    <div style="text-align:center; padding:1.5rem 1rem 1rem; margin-top:1rem;
+    <div style="text-align:center; padding:1.5rem 1rem 1rem; margin-top:0.5rem;
         border-top:2px solid #1a1a1a;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.65rem;
           color:#333; letter-spacing:1px; margin:0;">
-        &copy; 2025 Isfan Fajar Anugrah &nbsp;&middot;&nbsp; All Rights Reserved<br>
+        © 2025 Isfan Fajar Anugrah &nbsp;·&nbsp; All Rights Reserved<br>
         Dilarang digandakan atau digunakan tanpa izin tertulis dari pemilik
       </p>
     </div>
