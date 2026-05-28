@@ -190,7 +190,15 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    st.video("https://files.catbox.moe/3txpoo.mp4")
+    st.markdown("""
+    <iframe
+        src="https://drive.google.com/file/d/1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj/preview"
+        width="100%"
+        height="480"
+        frameborder="0"
+        allowfullscreen
+    ></iframe>
+    """, unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
