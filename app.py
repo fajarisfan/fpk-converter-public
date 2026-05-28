@@ -187,17 +187,10 @@ else:
           ✓ &nbsp;Riwayat &amp; rekap tersimpan otomatis
         </p>
       </div>
-      <div style="border:2px solid #ffd700; overflow:hidden;">
-        <iframe
-          src="https://drive.google.com/file/d/1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj/preview"
-          width="100%"
-          height="320"
-          allow="autoplay"
-          style="border:none; display:block;">
-        </iframe>
-      </div>
     </div>
     """, unsafe_allow_html=True)
+
+    st.video("https://files.catbox.moe/3txpoo")
 
     st.markdown("<br>", unsafe_allow_html=True)
 
