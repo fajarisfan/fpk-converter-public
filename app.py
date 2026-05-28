@@ -3,7 +3,7 @@ import streamlit as st
 st.set_page_config(page_title="FPK Converter", page_icon="⚡", layout="centered")
 
 # ── GANTI INI DENGAN LINK VIDEO DARI VENDOR ──
-VIDEO_URL = "https://drive.google.com/file/d/1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj/view?usp=drivesdk"
+VIDEO_URL = "https://drive.google.com/uc?export=download&id=1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj"
 # ─────────────────────────────────────────────
 
 # CSS
