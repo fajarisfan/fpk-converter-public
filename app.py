@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="FPK Converter", page_icon="⚡", layout="centered")
 
-VIDEO_URL = "https://drive.google.com/uc?export=download&id=1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj"
+VIDEO_URL = "https://streamable.com/0vndzo"
 
 st.markdown("""
 <style>
