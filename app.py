@@ -193,7 +193,7 @@ else:
     <div style="background:#111; border:3px solid #333; border-left:5px solid #ffd700;
         padding:1.4rem 1.5rem; margin-bottom:1.5rem; box-shadow:5px 5px 0px #ffd700;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
-          color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">🎬 PANDUAN VENDOR</p>
+          color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">🎬 PANDUAN VENDOR SIMRS ICHA</p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:1rem;
           font-weight:700; color:#f0f0f0; margin:0 0 0.4rem;">
         Video Tutorial Manual FPK BPJS
