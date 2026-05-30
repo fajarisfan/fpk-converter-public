@@ -209,6 +209,7 @@ else:
             color:#555; margin:0 0 4px; letter-spacing:1px;">// TANPA APLIKASI INI</p>
         <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
             color:#666; margin:0; line-height:1.8;">
+          ✗ &nbsp;Wajib pakai PC / laptop<br>
           ✗ &nbsp;Buka PDF satu per satu<br>
           ✗ &nbsp;Salin No.SEP secara manual<br>
           ✗ &nbsp;Input ke Excel satu per satu<br>
@@ -222,6 +223,7 @@ else:
             color:#00c47a; margin:0 0 4px; letter-spacing:1px;">// DENGAN APLIKASI INI (dulu)</p>
         <p style="font-family:'Space Grotesk',sans-serif; font-size:0.82rem;
             color:#666; margin:0; line-height:1.8;">
+          ✓ &nbsp;Bisa diakses dari HP maupun PC<br>
           ✓ &nbsp;Upload PDF → otomatis terbaca<br>
           ✓ &nbsp;No.SEP &amp; nominal terekstrak otomatis<br>
           ✓ &nbsp;Deteksi duplikat otomatis<br>
@@ -245,13 +247,14 @@ else:
           color:#777; margin:0 0 0.6rem; line-height:1.8;">
         Bayangin ada <span style="color:#ff6b35; font-weight:700;">8 PDF susulan</span> masuk sekaligus —
         buka satu-satu, salin No.SEP satu-satu, input ke Excel satu-satu, hitung nominal satu-satu.
-        Itu baru <em>sekali batch.</em>
+        Itu baru <em>sekali batch.</em> Dan wajib duduk di depan PC dulu.
       </p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
           color:#777; margin:0 0 0.6rem; line-height:1.8;">
         Aplikasi ini memproses 8 PDF itu dalam
         <span style="color:#00c47a; font-weight:700;">hitungan detik.</span>
         Hasilnya? Sama persis dengan manual — tapi tanpa capek, tanpa salah input, tanpa drama.
+        Bahkan bisa dikerjain sambil rebahan dari HP. 📱
       </p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:0.85rem;
           color:#555; margin:0; line-height:1.8;">
