@@ -20,9 +20,21 @@ html, body, [class*="css"] { font-family: 'Space Grotesk', sans-serif !important
     border-color: #ff6b35 !important; box-shadow: 4px 4px 0px #ff6b35 !important;
 }
 [data-testid="stTextInputHideShowButton"],
-[data-baseweb="input"] button { display: none !important; }
+button[aria-label="Show password text"],
+button[aria-label="Hide password text"],
+button[aria-label="Show password"],
+button[aria-label="Hide password"] {
+    display: none !important; visibility: hidden !important;
+    width: 0 !important; height: 0 !important; opacity: 0 !important;
+    pointer-events: none !important; position: absolute !important;
+}
 input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear { display: none !important; }
+input[type="password"], input[type="password"]:focus {
+    color: transparent !important;
+    -webkit-text-security: none !important;
+    caret-color: #ff6b35 !important;
+}
 .stButton > button {
     background: #ff6b35 !important; color: #f0f0f0 !important;
     border: 3px solid #f0f0f0 !important; border-radius: 0px !important;
@@ -35,6 +47,36 @@ input[type="password"]::-ms-clear { display: none !important; }
     box-shadow: 6px 6px 0px #f0f0f0 !important;
 }
 </style>
+<script>
+(function() {
+  function removeEyeIcons() {
+    var selectors = [
+      '[data-testid="stTextInputHideShowButton"]',
+      'button[aria-label="Show password text"]',
+      'button[aria-label="Hide password text"]',
+      'button[aria-label="Show password"]',
+      'button[aria-label="Hide password"]'
+    ];
+    selectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        el.style.setProperty('display', 'none', 'important');
+        el.style.setProperty('visibility', 'hidden', 'important');
+        el.style.setProperty('width', '0', 'important');
+        el.style.setProperty('height', '0', 'important');
+        el.style.setProperty('opacity', '0', 'important');
+        el.style.setProperty('pointer-events', 'none', 'important');
+        el.style.setProperty('position', 'absolute', 'important');
+      });
+    });
+    document.querySelectorAll('input[type="password"]').forEach(function(el) {
+      el.style.setProperty('color', 'transparent', 'important');
+    });
+  }
+  removeEyeIcons();
+  var observer = new MutationObserver(function() { removeEyeIcons(); });
+  observer.observe(document.body, { childList: true, subtree: true });
+})();
+</script>
 """, unsafe_allow_html=True)
 
 if "pin_submitted" not in st.session_state:
@@ -144,12 +186,12 @@ else:
     <div style="display:flex; align-items:center; gap:1rem; margin:0.5rem 0 1.2rem;">
       <div style="flex:1; height:2px; background:#1a1a1a;"></div>
       <span style="font-family:'JetBrains Mono',monospace; font-size:9px;
-          color:#444; letter-spacing:2px; white-space:nowrap;">// CARA MANUAL</span>
+          color:#444; letter-spacing:2px; white-space:nowrap;">// PERBANDINGAN</span>
       <div style="flex:1; height:2px; background:#1a1a1a;"></div>
     </div>
 
     <div style="background:#111; border:3px solid #333; border-left:5px solid #ffd700;
-        padding:1.4rem 1.5rem; margin-bottom:1rem; box-shadow:5px 5px 0px #ffd700;">
+        padding:1.4rem 1.5rem; margin-bottom:1.5rem; box-shadow:5px 5px 0px #ffd700;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.72rem;
           color:#ffd700; margin:0 0 0.4rem; letter-spacing:1px;">🎬 PANDUAN VENDOR</p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:1rem;
@@ -190,10 +232,9 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
-    # ── TULISAN SEBELUM VIDEO ──
     st.markdown("""
     <div style="background:#0d0d0d; border:2px solid #1a1a1a; border-left:4px solid #ff6b35;
-        padding:1.1rem 1.4rem; margin-bottom:1rem;">
+        padding:1.1rem 1.4rem; margin-bottom:1.2rem;">
       <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
           color:#ff6b35; margin:0 0 0.6rem; letter-spacing:1px;">// PESAN DARI DEVELOPER</p>
       <p style="font-family:'Space Grotesk',sans-serif; font-size:0.95rem;
@@ -220,13 +261,53 @@ else:
     </div>
     """, unsafe_allow_html=True)
 
+    # ── VIDEO 1: MANUAL ──
     st.markdown("""
+    <div style="display:flex; align-items:center; gap:1rem; margin:1.2rem 0 0.8rem;">
+      <div style="flex:1; height:2px; background:#1a1a1a;"></div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:9px;
+          color:#ff4444; letter-spacing:2px; white-space:nowrap;">▶ CARA MANUAL (VENDOR)</span>
+      <div style="flex:1; height:2px; background:#1a1a1a;"></div>
+    </div>
+    <div style="background:#111; border:2px solid #2a1a1a; border-left:4px solid #ff4444;
+        padding:0.7rem 1rem; margin-bottom:0.8rem;">
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+          color:#ff4444; margin:0; letter-spacing:1px;">
+        ⏱ Perlu waktu lama &nbsp;·&nbsp; ✗ Rawan salah input &nbsp;·&nbsp; ✗ Tidak ada cek duplikat
+      </p>
+    </div>
     <iframe
         src="https://drive.google.com/file/d/1MfjZGjYAel_XrnY-3R_q8KUlMCKYmcNj/preview"
         width="100%"
-        height="480"
+        height="400"
         frameborder="0"
         allowfullscreen
+        style="border: 3px solid #2a1a1a; display:block; margin-bottom:1.5rem;"
+    ></iframe>
+    """, unsafe_allow_html=True)
+
+    # ── VIDEO 2: PAKAI APLIKASI ──
+    st.markdown("""
+    <div style="display:flex; align-items:center; gap:1rem; margin:0.5rem 0 0.8rem;">
+      <div style="flex:1; height:2px; background:#1a1a1a;"></div>
+      <span style="font-family:'JetBrains Mono',monospace; font-size:9px;
+          color:#00c47a; letter-spacing:2px; white-space:nowrap;">▶ PAKAI APLIKASI INI</span>
+      <div style="flex:1; height:2px; background:#1a1a1a;"></div>
+    </div>
+    <div style="background:#111; border:2px solid #1a2a1a; border-left:4px solid #00c47a;
+        padding:0.7rem 1rem; margin-bottom:0.8rem;">
+      <p style="font-family:'JetBrains Mono',monospace; font-size:0.68rem;
+          color:#00c47a; margin:0; letter-spacing:1px;">
+        ⚡ Hitungan detik &nbsp;·&nbsp; ✓ Otomatis akurat &nbsp;·&nbsp; ✓ Cek duplikat otomatis
+      </p>
+    </div>
+    <iframe
+        src="https://drive.google.com/file/d/1ksWlrwRFHJsh_vCopweM0jVzYfAnV2pn/preview"
+        width="100%"
+        height="400"
+        frameborder="0"
+        allowfullscreen
+        style="border: 3px solid #1a2a1a; display:block; margin-bottom:1.5rem;"
     ></iframe>
     """, unsafe_allow_html=True)
 
